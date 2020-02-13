@@ -172,9 +172,11 @@ function toMarkdown (html) {
         }
         
         switch (node.tag) {
+            case 'strong':
             case 'b':
                 markdown += '**'
                 break
+            case 'em':
             case 'i':
                 markdown += '*'
                 break
