@@ -1,0 +1,509 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`markdown b|a 1`] = `"**hello** [world](https://bj.cards)"`;
+
+exports[`markdown b->t | br | br | i->t 1`] = `"**hello** *world*"`;
+
+exports[`markdown b->t|i->t|a->t 1`] = `"**foo *yo [Google](https://google.com) ***"`;
+
+exports[`tree iterator 1`] = `
+Array [
+  Object {
+    "event": "start",
+    "node": Node {
+      "attributes": undefined,
+      "children": Array [
+        Node {
+          "attributes": undefined,
+          "children": Array [
+            Node {
+              "attributes": undefined,
+              "children": Array [
+                "Hello World!",
+              ],
+              "parent": [Circular],
+              "tag": "i",
+            },
+            " Here is my ",
+            Node {
+              "attributes": undefined,
+              "children": Array [
+                "Link",
+              ],
+              "parent": [Circular],
+              "tag": "a",
+            },
+            "1",
+          ],
+          "parent": [Circular],
+          "tag": "b",
+        },
+        "2",
+      ],
+      "parent": Node {
+        "attributes": undefined,
+        "children": Array [
+          [Circular],
+          "3",
+        ],
+        "parent": undefined,
+        "tag": undefined,
+      },
+      "tag": "i",
+    },
+  },
+  Object {
+    "event": "start",
+    "node": Node {
+      "attributes": undefined,
+      "children": Array [
+        Node {
+          "attributes": undefined,
+          "children": Array [
+            "Hello World!",
+          ],
+          "parent": [Circular],
+          "tag": "i",
+        },
+        " Here is my ",
+        Node {
+          "attributes": undefined,
+          "children": Array [
+            "Link",
+          ],
+          "parent": [Circular],
+          "tag": "a",
+        },
+        "1",
+      ],
+      "parent": Node {
+        "attributes": undefined,
+        "children": Array [
+          [Circular],
+          "2",
+        ],
+        "parent": Node {
+          "attributes": undefined,
+          "children": Array [
+            [Circular],
+            "3",
+          ],
+          "parent": undefined,
+          "tag": undefined,
+        },
+        "tag": "i",
+      },
+      "tag": "b",
+    },
+  },
+  Object {
+    "event": "start",
+    "node": Node {
+      "attributes": undefined,
+      "children": Array [
+        "Hello World!",
+      ],
+      "parent": Node {
+        "attributes": undefined,
+        "children": Array [
+          [Circular],
+          " Here is my ",
+          Node {
+            "attributes": undefined,
+            "children": Array [
+              "Link",
+            ],
+            "parent": [Circular],
+            "tag": "a",
+          },
+          "1",
+        ],
+        "parent": Node {
+          "attributes": undefined,
+          "children": Array [
+            [Circular],
+            "2",
+          ],
+          "parent": Node {
+            "attributes": undefined,
+            "children": Array [
+              [Circular],
+              "3",
+            ],
+            "parent": undefined,
+            "tag": undefined,
+          },
+          "tag": "i",
+        },
+        "tag": "b",
+      },
+      "tag": "i",
+    },
+  },
+  Object {
+    "event": "leaf",
+    "node": "Hello World!",
+  },
+  Object {
+    "event": "end",
+    "node": Node {
+      "attributes": undefined,
+      "children": Array [
+        "Hello World!",
+      ],
+      "parent": Node {
+        "attributes": undefined,
+        "children": Array [
+          [Circular],
+          " Here is my ",
+          Node {
+            "attributes": undefined,
+            "children": Array [
+              "Link",
+            ],
+            "parent": [Circular],
+            "tag": "a",
+          },
+          "1",
+        ],
+        "parent": Node {
+          "attributes": undefined,
+          "children": Array [
+            [Circular],
+            "2",
+          ],
+          "parent": Node {
+            "attributes": undefined,
+            "children": Array [
+              [Circular],
+              "3",
+            ],
+            "parent": undefined,
+            "tag": undefined,
+          },
+          "tag": "i",
+        },
+        "tag": "b",
+      },
+      "tag": "i",
+    },
+  },
+  Object {
+    "event": "leaf",
+    "node": " Here is my ",
+  },
+  Object {
+    "event": "start",
+    "node": Node {
+      "attributes": undefined,
+      "children": Array [
+        "Link",
+      ],
+      "parent": Node {
+        "attributes": undefined,
+        "children": Array [
+          Node {
+            "attributes": undefined,
+            "children": Array [
+              "Hello World!",
+            ],
+            "parent": [Circular],
+            "tag": "i",
+          },
+          " Here is my ",
+          [Circular],
+          "1",
+        ],
+        "parent": Node {
+          "attributes": undefined,
+          "children": Array [
+            [Circular],
+            "2",
+          ],
+          "parent": Node {
+            "attributes": undefined,
+            "children": Array [
+              [Circular],
+              "3",
+            ],
+            "parent": undefined,
+            "tag": undefined,
+          },
+          "tag": "i",
+        },
+        "tag": "b",
+      },
+      "tag": "a",
+    },
+  },
+  Object {
+    "event": "leaf",
+    "node": "Link",
+  },
+  Object {
+    "event": "end",
+    "node": Node {
+      "attributes": undefined,
+      "children": Array [
+        "Link",
+      ],
+      "parent": Node {
+        "attributes": undefined,
+        "children": Array [
+          Node {
+            "attributes": undefined,
+            "children": Array [
+              "Hello World!",
+            ],
+            "parent": [Circular],
+            "tag": "i",
+          },
+          " Here is my ",
+          [Circular],
+          "1",
+        ],
+        "parent": Node {
+          "attributes": undefined,
+          "children": Array [
+            [Circular],
+            "2",
+          ],
+          "parent": Node {
+            "attributes": undefined,
+            "children": Array [
+              [Circular],
+              "3",
+            ],
+            "parent": undefined,
+            "tag": undefined,
+          },
+          "tag": "i",
+        },
+        "tag": "b",
+      },
+      "tag": "a",
+    },
+  },
+  Object {
+    "event": "leaf",
+    "node": "1",
+  },
+  Object {
+    "event": "end",
+    "node": Node {
+      "attributes": undefined,
+      "children": Array [
+        Node {
+          "attributes": undefined,
+          "children": Array [
+            "Hello World!",
+          ],
+          "parent": [Circular],
+          "tag": "i",
+        },
+        " Here is my ",
+        Node {
+          "attributes": undefined,
+          "children": Array [
+            "Link",
+          ],
+          "parent": [Circular],
+          "tag": "a",
+        },
+        "1",
+      ],
+      "parent": Node {
+        "attributes": undefined,
+        "children": Array [
+          [Circular],
+          "2",
+        ],
+        "parent": Node {
+          "attributes": undefined,
+          "children": Array [
+            [Circular],
+            "3",
+          ],
+          "parent": undefined,
+          "tag": undefined,
+        },
+        "tag": "i",
+      },
+      "tag": "b",
+    },
+  },
+  Object {
+    "event": "leaf",
+    "node": "2",
+  },
+  Object {
+    "event": "end",
+    "node": Node {
+      "attributes": undefined,
+      "children": Array [
+        Node {
+          "attributes": undefined,
+          "children": Array [
+            Node {
+              "attributes": undefined,
+              "children": Array [
+                "Hello World!",
+              ],
+              "parent": [Circular],
+              "tag": "i",
+            },
+            " Here is my ",
+            Node {
+              "attributes": undefined,
+              "children": Array [
+                "Link",
+              ],
+              "parent": [Circular],
+              "tag": "a",
+            },
+            "1",
+          ],
+          "parent": [Circular],
+          "tag": "b",
+        },
+        "2",
+      ],
+      "parent": Node {
+        "attributes": undefined,
+        "children": Array [
+          [Circular],
+          "3",
+        ],
+        "parent": undefined,
+        "tag": undefined,
+      },
+      "tag": "i",
+    },
+  },
+  Object {
+    "event": "leaf",
+    "node": "3",
+  },
+]
+`;
+
+exports[`tree parse a->t 1`] = `
+Node {
+  "attributes": undefined,
+  "children": Array [
+    Node {
+      "attributes": Object {
+        "href": "https://google.com",
+      },
+      "children": Array [
+        "Google",
+      ],
+      "parent": [Circular],
+      "tag": "a",
+    },
+  ],
+  "parent": undefined,
+  "tag": undefined,
+}
+`;
+
+exports[`tree parse b->i->t 1`] = `
+Node {
+  "attributes": undefined,
+  "children": Array [
+    Node {
+      "attributes": undefined,
+      "children": Array [
+        Node {
+          "attributes": undefined,
+          "children": Array [
+            "Hello World!",
+          ],
+          "parent": [Circular],
+          "tag": "i",
+        },
+      ],
+      "parent": [Circular],
+      "tag": "b",
+    },
+  ],
+  "parent": undefined,
+  "tag": undefined,
+}
+`;
+
+exports[`tree parse b->t | br | br | i->t 1`] = `
+Node {
+  "attributes": undefined,
+  "children": Array [
+    Node {
+      "attributes": undefined,
+      "children": Array [
+        "hello",
+      ],
+      "parent": [Circular],
+      "tag": "b",
+    },
+    Node {
+      "attributes": undefined,
+      "children": Array [],
+      "parent": [Circular],
+      "tag": "br",
+    },
+    Node {
+      "attributes": undefined,
+      "children": Array [],
+      "parent": [Circular],
+      "tag": "br",
+    },
+    " ",
+    Node {
+      "attributes": undefined,
+      "children": Array [
+        "world",
+      ],
+      "parent": [Circular],
+      "tag": "i",
+    },
+  ],
+  "parent": undefined,
+  "tag": undefined,
+}
+`;
+
+exports[`tree parse b->t | t 1`] = `
+Node {
+  "attributes": undefined,
+  "children": Array [
+    Node {
+      "attributes": undefined,
+      "children": Array [
+        "Hello World!",
+      ],
+      "parent": [Circular],
+      "tag": "b",
+    },
+    " Test",
+  ],
+  "parent": undefined,
+  "tag": undefined,
+}
+`;
+
+exports[`tree parse b->t 1`] = `
+Node {
+  "attributes": undefined,
+  "children": Array [
+    Node {
+      "attributes": undefined,
+      "children": Array [
+        "Hello World!",
+      ],
+      "parent": [Circular],
+      "tag": "b",
+    },
+  ],
+  "parent": undefined,
+  "tag": undefined,
+}
+`;
