@@ -53,3 +53,15 @@ test('markdown b|a', () => {
     const markdown = parse.toMarkdown(`<b>hello</b> <a href='https://bj.cards'>world</a>`)
     expect(markdown).toMatchSnapshot()
 })
+test('markdown p | p | p', () => {
+    const markdown = parse.toMarkdown(`<p>Paragraph 1</p><p>Paragraph 2</p><p>Paragraph 3</p>`)
+    expect(markdown).toMatchSnapshot()
+})
+test('markdown (paragraphs disabled) p | p | p', () => {
+    const markdown = parse.toMarkdown(`<p>Paragraph 1</p><p>Paragraph 2</p><p>Paragraph 3</p>`, { disableParagraphs: true })
+    expect(markdown).toMatchSnapshot()
+})
+test('markdown custom', () => {
+    const markdown = parse.toMarkdown(`<p>Mediocre coffee spot. <strong>If</strong> you want an awesome coffee spot, <strong>go</strong> a few doors west to Lazarus.</p>`)
+    expect(markdown).toMatchSnapshot()
+})

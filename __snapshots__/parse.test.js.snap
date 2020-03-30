@@ -1,10 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`markdown (paragraphs disabled) p | p | p 1`] = `"Paragraph 1 Paragraph 2 Paragraph 3"`;
+
 exports[`markdown b|a 1`] = `"**hello** [world](https://bj.cards)"`;
 
 exports[`markdown b->t | br | br | i->t 1`] = `"**hello** *world*"`;
 
 exports[`markdown b->t|i->t|a->t 1`] = `"**foo *yo [Google](https://google.com) ***"`;
+
+exports[`markdown custom 1`] = `"Mediocre coffee spot. **If** you want an awesome coffee spot, **go** a few doors west to Lazarus."`;
+
+exports[`markdown p | p | p 1`] = `
+"Paragraph 1
+
+Paragraph 2
+
+Paragraph 3"
+`;
 
 exports[`tree iterator 1`] = `
 Array [

@@ -147,11 +147,13 @@ function toTree (html) {
     }
 }
 
-function toMarkdown (html) {
+function toMarkdown (html, options={}) {
     var markdown = ''
 
     const tree = toTree(html)
     const treeIterator = tree[Symbol.iterator]()
+
+    var foundParagraph = false
 
     while (true) {
         const result = treeIterator.next()
@@ -166,7 +168,7 @@ function toMarkdown (html) {
 
             switch (node.tag) {
                 case 'br':
-                    markdown += '\n'
+                    markdown += '\n\n'
             }
             continue
         }
@@ -183,7 +185,21 @@ function toMarkdown (html) {
             case 'a':
                 markdown += event === 'start' ? '[' : `](${node.attributes.href})`
                 break
+            case 'p':
+                if (event === 'end') {
+                    foundParagraph = true
+                }
+                if (event === 'start' && foundParagraph) {
+                    markdown += '\n\n'
+                }
         }
+    }
+
+    // Clean up paragraphs.
+    markdown = markdown.replace(/(?:\n){2,}/g, '\n\n')
+
+    if (options.disableParagraphs) {
+        markdown = markdown.replace(/\n\n/g, ' ')
     }
 
     return markdown
