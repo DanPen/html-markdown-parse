@@ -41,6 +41,11 @@ test('tree iterator', () => {
     // }
 })
 
+test('trim whitespace inside of tags', () => {
+    const markdown = parse.toMarkdown(`1<b>   a</b> b <i> c</i> <i>d </i><b> e </b>`)
+    expect(markdown).toBe('1 **a** b  *c* *d*  **e** ')
+})
+
 test('markdown b->t|i->t|a->t', () => {
     const markdown = parse.toMarkdown(`<b>foo <i>yo <a href="https://google.com">Google</a> </i></b>`)
     expect(markdown).toMatchSnapshot()

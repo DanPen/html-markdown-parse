@@ -67,20 +67,10 @@ function toTree (html) {
         const charNext = data[i+1]
 
         if (isOpenBracket(char) && isAlpha(charNext)) {
-            // Clean up text nodes
-            if (textNode) {
-                currentNode.children.push(textNode)
-                textNode = ''
-            }
             i++
             tagStart()
         }
         else if (isOpenBracket(data[i]) && isForwardSlash(data[i+1])) {
-            // Clean up text nodes
-            if (textNode) {
-                currentNode.children.push(textNode)
-                textNode = ''
-            }
 
             // Find and skip to after the close bracket.
             const expectedTag = currentNode.tag
@@ -95,10 +85,7 @@ function toTree (html) {
     }
 
     // Clean up text nodes
-    if (textNode) {
-        currentNode.children.push(textNode)
-        textNode = ''
-    }
+    commitTextNode()
 
     return rootNode
 
@@ -108,6 +95,8 @@ function toTree (html) {
             tagName += data[i]
             i++
         }
+
+        commitTextNode()
 
         const newNode = new Node({ parent: currentNode, tag: tagName })
         currentNode.children.push(newNode)
@@ -143,7 +132,53 @@ function toTree (html) {
     }
 
     function tagEnd () {
+        const isSmallTag = ['a', 'b', 'strong', 'em', 'i'].includes(currentNode.tag)
+        commitTextNode({
+            trim: isSmallTag ? 'both' : false,
+            putSpacesInParent: true
+        })
+
         currentNode = currentNode.parent
+    }
+
+    function commitTextNode ({ trim = false, putSpacesInParent = false } = {}) {
+        if (textNode) {
+            var textNodeNew = textNode
+            if (trim) {
+                const matches = textNode.match(/^(\s*)(.*\S)(\s*)$/)
+
+                if (matches) {
+                    if (trim === 'start') {
+                        textNodeNew = matches[2]+matches[3]
+                        if (putSpacesInParent && matches[1]) {
+                            const indexOfSelfWithinParent = currentNode.parent.children.indexOf(currentNode)
+                            currentNode.parent.children.splice(indexOfSelfWithinParent, 0, ' ')
+                        }
+                    }
+                    else if (trim === 'end') {
+                        textNodeNew = matches[1]+matches[2]
+                        if (putSpacesInParent && matches[3]) {
+                            const indexOfSelfWithinParent = currentNode.parent.children.indexOf(currentNode)
+                            currentNode.parent.children.splice(indexOfSelfWithinParent+1, 0, ' ')
+                        }
+                    }
+                    else if (trim === 'both') {
+                        textNodeNew = matches[2]
+                        if (putSpacesInParent && matches[1]) {
+                            const indexOfSelfWithinParent = currentNode.parent.children.indexOf(currentNode)
+                            currentNode.parent.children.splice(indexOfSelfWithinParent, 0, ' ')
+                        }
+                        if (putSpacesInParent && matches[3]) {
+                            const indexOfSelfWithinParent = currentNode.parent.children.indexOf(currentNode)
+                            currentNode.parent.children.splice(indexOfSelfWithinParent+1, 0, ' ')
+                        }
+                    }
+                }
+            }
+
+            currentNode.children.push(textNodeNew)
+            textNode = ''
+        }
     }
 }
 
